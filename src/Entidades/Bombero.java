@@ -10,29 +10,29 @@ public class Bombero {
     private String nombreCompleto;
     private String grupoSanguineo;
     private LocalDate fechaNacimiento;
-    private int celular;
+    private String celular;
     private Brigada idBrigada;
 
     public Bombero() {
     }
 
-    public Bombero(int dni, String nombreCompleto, String grupoSanguineo, LocalDate fechaNacimiento, int celular,Brigada idBrigada) {
+    public Bombero(int dni, String nombreCompleto, String grupoSanguineo, LocalDate fechaNacimiento, String celular, Brigada idBrigada) {
         this.dni = dni;
         this.nombreCompleto = nombreCompleto;
         this.grupoSanguineo = grupoSanguineo;
         this.fechaNacimiento = fechaNacimiento;
         this.celular = celular;
-        this.idBrigada=idBrigada;
+        this.idBrigada = idBrigada;
     }
 
-    public Bombero(int idBombero, int dni, String nombreCompleto, String grupoSanguineo, LocalDate fechaNacimiento, int celular,Brigada idBrigada) {
+    public Bombero(int idBombero, int dni, String nombreCompleto, String grupoSanguineo, LocalDate fechaNacimiento, String celular, Brigada idBrigada) {
         this.idBombero = idBombero;
         this.dni = dni;
         this.nombreCompleto = nombreCompleto;
         this.grupoSanguineo = grupoSanguineo;
         this.fechaNacimiento = fechaNacimiento;
         this.celular = celular;
-        this.idBrigada=idBrigada;
+        this.idBrigada = idBrigada;
     }
 
     public int getIdBombero() {
@@ -75,11 +75,11 @@ public class Bombero {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public int getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(int celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
@@ -90,11 +90,19 @@ public class Bombero {
     public void setIdBrigada(Brigada idBrigada) {
         this.idBrigada = idBrigada;
     }
-    
 
     @Override
     public String toString() {
-        return "Bombero{" + "dni=" + dni + ", nombreCompleto=" + nombreCompleto + ", celular=" + celular + '}';
+        return "Bombero{" + "idBombero=" + idBombero + ", dni=" + dni + ", nombreCompleto=" + nombreCompleto + ", grupoSanguineo=" + grupoSanguineo + ", fechaNacimiento=" + fechaNacimiento + ", celular=" + celular + ", idBrigada=" + idBrigada + '}';
     }
-    
+
+    public Object getBrigada() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setIdBrigada(int idBrigada) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+   
 }
