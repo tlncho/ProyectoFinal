@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
-import java.sql.SQLSyntaxErrorException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,14 +23,15 @@ public class BrigadaData {
         con = Conexion.getConexion();
     }
 
+    //se cargo cun alias que ya no exista y ese es el identificador unico para el usuario
     public void cargarBrigada(Brigada brigada) {
-        String cargarBrigada = "INSERT INTO brigada (nombre_br, especialidad, estado, nro_cuartel) VALUES (?, ?, ?, ?)";
+        String cargarBrigada = "INSERT INTO brigada (aliasBrigada, especialidad, estado, codCuartel) VALUES (?, ?, ?, ?)";
         try {
             try (PreparedStatement ps = con.prepareStatement(cargarBrigada, Statement.RETURN_GENERATED_KEYS)) {
-                ps.setString(1, brigada.getNombre());
+                ps.setString(1, brigada.getAliasBrigada());
                 ps.setString(2, brigada.getEspecialidad());
                 ps.setBoolean(3, brigada.isEstado());
-                ps.setInt(4, brigada.getNroCuartel().getIdCuartel());
+                ps.setInt(4, brigada.getCodCuartel().getIdCuartel());
 
                 ps.executeUpdate();
                 ResultSet rs = ps.getGeneratedKeys();
@@ -50,14 +50,14 @@ public class BrigadaData {
     }
 
     public void modificarBrigada(Brigada brigada) {
-        String actualizarBrigada = "UPDATE brigada SET nombre_br=?, especialidad=?, estado=?, nro_cuartel=? WHERE idBrigada=?";
+        String actualizarBrigada = "UPDATE brigada SET aliasBrigada=?, especialidad=?, estado=?, codCuartel=? WHERE codBrigada=?";
 
         try {
             try (PreparedStatement ps = con.prepareStatement(actualizarBrigada)) {
-                ps.setString(1, brigada.getNombre());
+                ps.setString(1, brigada.getAliasBrigada());
                 ps.setString(2, brigada.getEspecialidad());
                 ps.setBoolean(3, brigada.isEstado());
-                ps.setInt(4, brigada.getNroCuartel().getIdCuartel());
+                ps.setInt(4, brigada.getCodCuartel().getIdCuartel());
 
                 int filasActualizadas = ps.executeUpdate();
 
@@ -75,25 +75,26 @@ public class BrigadaData {
         }
     }
 
-    public Brigada buscarBrigada(int idBrigada) {
+    //se busca por alias que es identificador unico para el usuario
+    public Brigada buscarBrigada(String aliasBrigada) {
         Brigada br = null;
 
-        String buscarBrigadaSQL = "SELECT idBrigada, nombre, especialidad, estado, nro_cuartel FROM brigada WHERE idBrigada=?";
+        String buscarBrigadaSQL = "SELECT aliasBrigada, especialidad, estado, codCuartel FROM brigada WHERE aliasBrigada=?";
         try (PreparedStatement ps = con.prepareStatement(buscarBrigadaSQL)) {
-            ps.setInt(1, idBrigada);
+            ps.setString(1, aliasBrigada);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                br.setIdBrigada(rs.getInt("idBrigada"));
-                br.setNombre(rs.getString("nombre"));
+                br = new Brigada(); 
+                br.setAliasBrigada(rs.getString("aliasBrigada"));
                 br.setEspecialidad(rs.getString("especialidad"));
                 br.setEstado(rs.getBoolean("estado"));
 
                 Cuartel cuartel = new Cuartel();
-                cuartel.setIdCuartel(rs.getInt("nro_cuartel"));
-                br.setNroCuartel(cuartel);
+                cuartel.setCodCuartel(rs.getInt("codCuartel"));
+                br.setCodCuartel(cuartel);
             } else {
-                JOptionPane.showMessageDialog(null, "La brigada no existe con ese código");
+                JOptionPane.showMessageDialog(null, "La brigada no existe con ese alias");
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al buscar la brigada: " + ex.getMessage());
@@ -102,34 +103,7 @@ public class BrigadaData {
         return br;
     }
 
-    public Brigada buscarBrigada(String nombre) {
-        Brigada bri = null;
-        String bb = "SELECT idBrigada, nombre, especialidad, estado, nro_cuartel FROM brigada WHERE nombre=?";
-        try {
-            try (PreparedStatement ps = con.prepareStatement(bb)) {
-                ps.setString(1, nombre);
-                ResultSet rs = ps.executeQuery();
-                if (rs.next()) {
-                    bri = new Brigada();
-                    bri.setIdBrigada(rs.getInt("idBrigada"));
-                    bri.setNombre(rs.getString("nombre"));
-                    bri.setEspecialidad(rs.getString("especialidad"));
-                    bri.setEstado(rs.getBoolean("estado"));
-
-                    Cuartel cuartel = new Cuartel();
-                    cuartel.setIdCuartel(rs.getInt("nro_cuartel"));
-                    bri.setNroCuartel(cuartel);
-                } else {
-                    JOptionPane.showMessageDialog(null, "La brigada no existe");
-                }
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al buscar la brigada: " + ex.getMessage());
-            ex.printStackTrace();
-        }
-        return bri;
-    }
-
+//   este lo dejo pero no ocuparemos borrados fisicos
     public void eliminarBrigada(int id) {
         String eliminarBrigada = "DELETE FROM brigada WHERE idBrigada = ?";
 
@@ -152,19 +126,19 @@ public class BrigadaData {
 
     public List<Brigada> listarBrigadas() {
         ArrayList<Brigada> listaBrig = new ArrayList<>();
-        try (PreparedStatement ps = con.prepareStatement("SELECT idMateria, nombre, año, estado FROM materia WHERE estado = 1")) {;
+        try (PreparedStatement ps = con.prepareStatement("SELECT aliasBrigada, especialidad,"
+                + " estado FROM brigada WHERE aliasBrigada => 1")) {;
             try (ResultSet rs = ps.executeQuery();) {
                 while (rs.next()) {
-                    Brigada br = new Brigada();
-                    br.setIdBrigada(rs.getInt("idBrigada"));
-                    br.setNombre(rs.getString("nombre"));
-                    br.setEspecialidad(rs.getString("especialidad"));
-                    br.setEstado(rs.getBoolean("estado"));
+                    Brigada bri = new Brigada();
+                    bri.setAliasBrigada(rs.getString("aliasBrigada"));
+                    bri.setEspecialidad(rs.getString("especialidad"));
+                    bri.setEstado(rs.getBoolean("estado"));
 
                     Cuartel cuartel = new Cuartel();
-                    cuartel.setIdCuartel(rs.getInt("nro_cuartel"));
-                    br.setNroCuartel(cuartel);
-                    listaBrig.add(br);
+                    cuartel.setCodCuartel(rs.getInt("codCuartel"));
+                    bri.setCodCuartel(cuartel);
+                    listaBrig.add(bri);
                 }
                 ps.close();
             } catch (SQLException ex) {

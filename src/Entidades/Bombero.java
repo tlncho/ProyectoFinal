@@ -5,34 +5,44 @@ import java.time.LocalDate;
 
 
 public class Bombero {
+   
     private int idBombero;
-    private int dni;
+    private int codBombero;
+    private String dni;
     private String nombreCompleto;
-    private String grupoSanguineo;
-    private LocalDate fechaNacimiento;
+    private String grupoSang;
+    private LocalDate fechaNac;
     private String celular;
-    private Brigada idBrigada;
+    private String observaciones;
+    private boolean estado;
+    private Brigada aliasBrigada;
 
     public Bombero() {
     }
 
-    public Bombero(int dni, String nombreCompleto, String grupoSanguineo, LocalDate fechaNacimiento, String celular, Brigada idBrigada) {
+    public Bombero(int idBombero, int codBombero, String dni, String nombreCompleto, String grupoSang, LocalDate fechaNac, String celular, String observaciones, boolean estado, Brigada aliasBrigada) {
+        this.idBombero = idBombero;
+        this.codBombero = codBombero;
         this.dni = dni;
         this.nombreCompleto = nombreCompleto;
-        this.grupoSanguineo = grupoSanguineo;
-        this.fechaNacimiento = fechaNacimiento;
+        this.grupoSang = grupoSang;
+        this.fechaNac = fechaNac;
         this.celular = celular;
-        this.idBrigada = idBrigada;
+        this.observaciones = observaciones;
+        this.estado = estado;
+        this.aliasBrigada = aliasBrigada;
     }
 
-    public Bombero(int idBombero, int dni, String nombreCompleto, String grupoSanguineo, LocalDate fechaNacimiento, String celular, Brigada idBrigada) {
-        this.idBombero = idBombero;
+    public Bombero(int codBombero, String dni, String nombreCompleto, String grupoSang, LocalDate fechaNac, String celular, String observaciones, boolean estado, Brigada aliasBrigada) {
+        this.codBombero = codBombero;
         this.dni = dni;
         this.nombreCompleto = nombreCompleto;
-        this.grupoSanguineo = grupoSanguineo;
-        this.fechaNacimiento = fechaNacimiento;
+        this.grupoSang = grupoSang;
+        this.fechaNac = fechaNac;
         this.celular = celular;
-        this.idBrigada = idBrigada;
+        this.observaciones = observaciones;
+        this.estado = estado;
+        this.aliasBrigada = aliasBrigada;
     }
 
     public int getIdBombero() {
@@ -43,11 +53,19 @@ public class Bombero {
         this.idBombero = idBombero;
     }
 
-    public int getDni() {
+    public int getCodBombero() {
+        return codBombero;
+    }
+
+    public void setCodBombero(int codBombero) {
+        this.codBombero = codBombero;
+    }
+
+    public String getDni() {
         return dni;
     }
 
-    public void setDni(int dni) {
+    public void setDni(String dni) {
         this.dni = dni;
     }
 
@@ -59,20 +77,20 @@ public class Bombero {
         this.nombreCompleto = nombreCompleto;
     }
 
-    public String getGrupoSanguineo() {
-        return grupoSanguineo;
+    public String getGrupoSang() {
+        return grupoSang;
     }
 
-    public void setGrupoSanguineo(String grupoSanguineo) {
-        this.grupoSanguineo = grupoSanguineo;
+    public void setGrupoSang(String grupoSang) {
+        this.grupoSang = grupoSang;
     }
 
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
+    public LocalDate getFechaNac() {
+        return fechaNac;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setFechaNac(LocalDate fechaNac) {
+        this.fechaNac = fechaNac;
     }
 
     public String getCelular() {
@@ -83,26 +101,34 @@ public class Bombero {
         this.celular = celular;
     }
 
-    public Brigada getIdBrigada() {
-        return idBrigada;
+    public String getObservaciones() {
+        return observaciones;
     }
 
-    public void setIdBrigada(Brigada idBrigada) {
-        this.idBrigada = idBrigada;
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public Brigada getAliasBrigada() {
+        return aliasBrigada;
+    }
+
+    public void setAliasBrigada(Brigada aliasBrigada) {
+        this.aliasBrigada = aliasBrigada;
     }
 
     @Override
     public String toString() {
-        return "Bombero{" + "idBombero=" + idBombero + ", dni=" + dni + ", nombreCompleto=" + nombreCompleto + ", grupoSanguineo=" + grupoSanguineo + ", fechaNacimiento=" + fechaNacimiento + ", celular=" + celular + ", idBrigada=" + idBrigada + '}';
+        return "Bombero{" + "codBombero=" + codBombero + ", dni=" + dni + ", nombreCompleto=" + nombreCompleto + ", grupoSang=" + grupoSang + ", fechaNac=" + fechaNac + ", celular=" + celular + ", observaciones=" + observaciones + ", estado=" + estado + ", aliasBrigada=" + aliasBrigada + '}';
     }
-
-    public Object getBrigada() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setIdBrigada(int idBrigada) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-   
+    
+    
 }

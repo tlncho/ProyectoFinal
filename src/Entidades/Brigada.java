@@ -4,27 +4,27 @@ package Entidades;
 
 public class Brigada {
     private int idBrigada;
-    private String nombre;
+    private String aliasBrigada;
     private String especialidad;
     private boolean estado;
-    private Cuartel nroCuartel;
+    private Cuartel codCuartel;
 
     public Brigada() {
     }
 
-    public Brigada(String nombre, String especialidad, boolean estado, Cuartel nroCuartel) {
-        this.nombre = nombre;
+    public Brigada(int idBrigada, String aliasBrigada, String especialidad, boolean estado, Cuartel codCuartel) {
+        this.idBrigada = idBrigada;
+        this.aliasBrigada = aliasBrigada;
         this.especialidad = especialidad;
         this.estado = estado;
-        this.nroCuartel = nroCuartel;
+        this.codCuartel = codCuartel;
     }
 
-    public Brigada(int idBrigada, String nombre, String especialidad, boolean estado, Cuartel nroCuartel) {
-        this.idBrigada = idBrigada;
-        this.nombre = nombre;
+    public Brigada(String aliasBrigada, String especialidad, boolean estado, Cuartel codCuartel) {
+        this.aliasBrigada = aliasBrigada;
         this.especialidad = especialidad;
         this.estado = estado;
-        this.nroCuartel = nroCuartel;
+        this.codCuartel = codCuartel;
     }
 
     public int getIdBrigada() {
@@ -35,12 +35,12 @@ public class Brigada {
         this.idBrigada = idBrigada;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getAliasBrigada() {
+        return aliasBrigada;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setAliasBrigada(String aliasBrigada) {
+        this.aliasBrigada = aliasBrigada;
     }
 
     public String getEspecialidad() {
@@ -59,17 +59,19 @@ public class Brigada {
         this.estado = estado;
     }
 
-    public Cuartel getNroCuartel() {
-        return nroCuartel;
+    public Cuartel getCodCuartel() {
+        return codCuartel;
     }
 
-    public void setNroCuartel(Cuartel nroCuartel) {
-        this.nroCuartel = nroCuartel;
+    public void setCodCuartel(Cuartel codCuartel) {
+        this.codCuartel = codCuartel;
     }
 
     @Override
     public String toString() {
-        return "Brigada{" + "idBrigada=" + idBrigada + ", nombre=" + nombre + ", especialidad=" + especialidad + ", estado=" + estado + ", nroCuartel=" + nroCuartel + '}';
+        return "Brigada{" + "aliasBrigada=" + aliasBrigada + ", especialidad=" + especialidad + ", estado=" + estado + ", codCuartel=" + codCuartel + '}';
     }
+
+    
     
 }

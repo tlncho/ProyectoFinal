@@ -4,32 +4,35 @@ package Entidades;
 
 public class Cuartel {
     private int idCuartel;
+    private int codCuartel;
     private String nombre;
-    private String direccion;
+    private String domicilio;
     private int coordenadaX;
      private int coordenadaY;
-     private int celular;
+     private int telefono;
      private String correo;
 
     public Cuartel() {
     }
 
-    public Cuartel(String nombre, String direccion, int coordenadaX, int coordenadaY, int celular, String correo) {
+    public Cuartel(int idCuartel, int codCuartel, String nombre, String domicilio, int coordenadaX, int coordenadaY, int telefono, String correo) {
+        this.idCuartel = idCuartel;
+        this.codCuartel = codCuartel;
         this.nombre = nombre;
-        this.direccion = direccion;
+        this.domicilio = domicilio;
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
-        this.celular = celular;
+        this.telefono = telefono;
         this.correo = correo;
     }
 
-    public Cuartel(int idCuartel, String nombre, String direccion, int coordenadaX, int coordenadaY, int celular, String correo) {
-        this.idCuartel = idCuartel;
+    public Cuartel(int codCuartel, String nombre, String domicilio, int coordenadaX, int coordenadaY, int telefono, String correo) {
+        this.codCuartel = codCuartel;
         this.nombre = nombre;
-        this.direccion = direccion;
+        this.domicilio = domicilio;
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
-        this.celular = celular;
+        this.telefono = telefono;
         this.correo = correo;
     }
 
@@ -41,6 +44,14 @@ public class Cuartel {
         this.idCuartel = idCuartel;
     }
 
+    public int getCodCuartel() {
+        return codCuartel;
+    }
+
+    public void setCodCuartel(int codCuartel) {
+        this.codCuartel = codCuartel;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -49,12 +60,12 @@ public class Cuartel {
         this.nombre = nombre;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getDomicilio() {
+        return domicilio;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
     }
 
     public int getCoordenadaX() {
@@ -73,12 +84,12 @@ public class Cuartel {
         this.coordenadaY = coordenadaY;
     }
 
-    public int getCelular() {
-        return celular;
+    public int getTelefono() {
+        return telefono;
     }
 
-    public void setCelular(int celular) {
-        this.celular = celular;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 
     public String getCorreo() {
@@ -91,8 +102,9 @@ public class Cuartel {
 
     @Override
     public String toString() {
-        return "Cuartel{" + "idCuartel=" + idCuartel + ", nombre=" + nombre + ", celular=" + celular + '}';
+        return "Cuartel{" + "codCuartel=" + codCuartel + ", nombre=" + nombre + ", domicilio=" + domicilio + ", coordenadaX=" + coordenadaX + ", coordenadaY=" + coordenadaY + ", telefono=" + telefono + ", correo=" + correo + '}';
     }
-    
+
+   
      
 }

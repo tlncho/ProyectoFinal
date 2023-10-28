@@ -1,66 +1,67 @@
 
 package Entidades;
 
-import java.time.LocalDate;
+import java.sql.Date;
+
 
 public class Siniestro {
-    private int codigo;
-    private String tipo;
-    private LocalDate fechaSiniestro;
+    private int idSiniestro;
+    private String tipoSinietsro;
+    private Date fechaSiniestro;
     private int coordenadaX;
      private int coordenadaY;
      private String detalles;
-     private LocalDate fechaResolucion;
-     private int puntuacion;
-     private Brigada codBrigada;
+     private Date fechaResolucion;
+     private int calificacion;
+     private Brigada idBrigada;
 
     public Siniestro() {
     }
 
-    public Siniestro(String tipo, LocalDate fechaSiniestro, int coordenadaX, int coordenadaY, String detalles, LocalDate fechaResolucion, int puntuacion, Brigada codBrigada) {
-        this.tipo = tipo;
+    public Siniestro(int idSiniestro, String tipoSinietsro, Date fechaSiniestro, int coordenadaX, int coordenadaY, String detalles, Date fechaResolucion, int calificacion, Brigada idBrigada) {
+        this.idSiniestro = idSiniestro;
+        this.tipoSinietsro = tipoSinietsro;
         this.fechaSiniestro = fechaSiniestro;
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
         this.detalles = detalles;
         this.fechaResolucion = fechaResolucion;
-        this.puntuacion = puntuacion;
-        this.codBrigada = codBrigada;
+        this.calificacion = calificacion;
+        this.idBrigada = idBrigada;
     }
 
-    public Siniestro(int codigo, String tipo, LocalDate fechaSiniestro, int coordenadaX, int coordenadaY, String detalles, LocalDate fechaResolucion, int puntuacion, Brigada codBrigada) {
-        this.codigo = codigo;
-        this.tipo = tipo;
+    public Siniestro(String tipoSinietsro, Date fechaSiniestro, int coordenadaX, int coordenadaY, String detalles, Date fechaResolucion, int calificacion, Brigada idBrigada) {
+        this.tipoSinietsro = tipoSinietsro;
         this.fechaSiniestro = fechaSiniestro;
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
         this.detalles = detalles;
         this.fechaResolucion = fechaResolucion;
-        this.puntuacion = puntuacion;
-        this.codBrigada = codBrigada;
+        this.calificacion = calificacion;
+        this.idBrigada = idBrigada;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getIdSiniestro() {
+        return idSiniestro;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setIdSiniestro(int idSiniestro) {
+        this.idSiniestro = idSiniestro;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoSinietsro() {
+        return tipoSinietsro;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoSinietsro(String tipoSinietsro) {
+        this.tipoSinietsro = tipoSinietsro;
     }
 
-    public LocalDate getFechaSiniestro() {
+    public Date getFechaSiniestro() {
         return fechaSiniestro;
     }
 
-    public void setFechaSiniestro(LocalDate fechaSiniestro) {
+    public void setFechaSiniestro(Date fechaSiniestro) {
         this.fechaSiniestro = fechaSiniestro;
     }
 
@@ -88,33 +89,34 @@ public class Siniestro {
         this.detalles = detalles;
     }
 
-    public LocalDate getFechaResolucion() {
+    public Date getFechaResolucion() {
         return fechaResolucion;
     }
 
-    public void setFechaResolucion(LocalDate fechaResolucion) {
+    public void setFechaResolucion(Date fechaResolucion) {
         this.fechaResolucion = fechaResolucion;
     }
 
-    public int getPuntuacion() {
-        return puntuacion;
+    public int getCalificacion() {
+        return calificacion;
     }
 
-    public void setPuntuacion(int puntuacion) {
-        this.puntuacion = puntuacion;
+    public void setCalificacion(int calificacion) {
+        this.calificacion = calificacion;
     }
 
-    public Brigada getCodBrigada() {
-        return codBrigada;
+    public Brigada getIdBrigada() {
+        return idBrigada;
     }
 
-    public void setCodBrigada(Brigada codBrigada) {
-        this.codBrigada = codBrigada;
+    public void setIdBrigada(Brigada idBrigada) {
+        this.idBrigada = idBrigada;
     }
 
     @Override
     public String toString() {
-        return "Siniestro{" + "tipo=" + tipo + ", fechaSiniestro=" + fechaSiniestro + ", detalles=" + detalles + ", fechaResolucion=" + fechaResolucion + ", puntuacion=" + puntuacion + ", codBrigada=" + codBrigada + '}';
+        return "Siniestro{" + "tipoSinietsro=" + tipoSinietsro + ", fechaSiniestro=" + fechaSiniestro + ", coordenadaX=" + coordenadaX + ", coordenadaY=" + coordenadaY + ", detalles=" + detalles + ", fechaResolucion=" + fechaResolucion + ", calificacion=" + calificacion + ", idBrigada=" + idBrigada + '}';
     }
-     
+
+    
 }
