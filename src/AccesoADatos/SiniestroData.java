@@ -3,7 +3,7 @@ package AccesoADatos;
 
 /**
  
- * @author Julian Development
+ * @author Julian Rios
  */
 public class SiniestroData {
 

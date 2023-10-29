@@ -127,7 +127,7 @@ public class BrigadaData {
     public List<Brigada> listarBrigadas() {
         ArrayList<Brigada> listaBrig = new ArrayList<>();
         try (PreparedStatement ps = con.prepareStatement("SELECT aliasBrigada, especialidad,"
-                + " estado FROM brigada WHERE aliasBrigada => 1")) {;
+                + " estado FROM brigada WHERE aliasBrigada ")) {;
             try (ResultSet rs = ps.executeQuery();) {
                 while (rs.next()) {
                     Brigada bri = new Brigada();
