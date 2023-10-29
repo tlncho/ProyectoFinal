@@ -22,17 +22,17 @@ public class Escritorio extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
+        menuSiniestros = new javax.swing.JMenu();
+        menuBusqueda = new javax.swing.JMenu();
+        menuEstadisticas = new javax.swing.JMenu();
+        menuMapas = new javax.swing.JMenu();
+        menuAdministarcion = new javax.swing.JMenu();
+        itemBomberos = new javax.swing.JMenuItem();
+        itemCuarteles = new javax.swing.JMenuItem();
+        itemBrigadas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -54,33 +54,38 @@ public class Escritorio extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bombero.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 580));
 
-        jMenu1.setText("Bomberos");
-        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu1);
+        menuSiniestros.setText("Siniestros");
+        menuSiniestros.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jMenuBar1.add(menuSiniestros);
 
-        jMenu2.setText("Cuarteles");
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu2);
+        menuBusqueda.setText("Busqueda/Listado");
+        menuBusqueda.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jMenuBar1.add(menuBusqueda);
 
-        jMenu3.setText("Brigadas");
-        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu3);
+        menuEstadisticas.setText("Informes/Estadisticas");
+        menuEstadisticas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jMenuBar1.add(menuEstadisticas);
 
-        jMenu4.setText("Siniestros");
-        jMenu4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu4);
+        menuMapas.setText("Mapas");
+        menuMapas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jMenuBar1.add(menuMapas);
 
-        jMenu5.setText("Busqueda/Listado");
-        jMenu5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu5);
+        menuAdministarcion.setText("Administración");
+        menuAdministarcion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        jMenu6.setText("Informes/Estadisticas");
-        jMenu6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu6);
+        itemBomberos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        itemBomberos.setText("Bomberos");
+        menuAdministarcion.add(itemBomberos);
 
-        jMenu8.setText("Mapas");
-        jMenu8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu8);
+        itemCuarteles.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        itemCuarteles.setText("Cuarteles");
+        menuAdministarcion.add(itemCuarteles);
+
+        itemBrigadas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        itemBrigadas.setText("Brigadas");
+        menuAdministarcion.add(itemBrigadas);
+
+        jMenuBar1.add(menuAdministarcion);
 
         setJMenuBar(jMenuBar1);
 
@@ -128,16 +133,17 @@ public class Escritorio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itemBomberos;
+    private javax.swing.JMenuItem itemBrigadas;
+    private javax.swing.JMenuItem itemCuarteles;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menuAdministarcion;
+    private javax.swing.JMenu menuBusqueda;
+    private javax.swing.JMenu menuEstadisticas;
+    private javax.swing.JMenu menuMapas;
+    private javax.swing.JMenu menuSiniestros;
     // End of variables declaration//GEN-END:variables
 }
