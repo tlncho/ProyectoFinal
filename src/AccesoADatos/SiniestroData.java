@@ -1,6 +1,7 @@
 package AccesoADatos;
 
 import Entidades.Brigada;
+import Entidades.Cuartel;
 import Entidades.Siniestro;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

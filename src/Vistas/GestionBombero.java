@@ -106,7 +106,7 @@ public class GestionBombero extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("ESTADO:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
 
         checkActivo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         checkActivo.setText("ACTIVO");
@@ -133,19 +133,19 @@ public class GestionBombero extends javax.swing.JFrame {
                 btnNuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 480, -1, -1));
+        jPanel1.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, -1, -1));
 
         btnModificar.setBackground(new java.awt.Color(0, 0, 0));
         btnModificar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnModificar.setForeground(new java.awt.Color(255, 255, 255));
         btnModificar.setText("MODIFICAR");
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, -1, -1));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, -1, -1));
 
         btnLimpiar.setBackground(new java.awt.Color(0, 0, 0));
         btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setText("LIMPIAR");
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, -1, -1));
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 500, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("DNI:");
@@ -156,13 +156,13 @@ public class GestionBombero extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("OBSERVACIONES:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 100, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 324, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 324, 110));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("TELEFONO:");
@@ -175,20 +175,21 @@ public class GestionBombero extends javax.swing.JFrame {
         jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 100, 330, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo rojo.jpeg"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 550));
+        jLabel11.setText("jLabel11");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 550));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        setVisible(false);
-    }//GEN-LAST:event_btnCerrarActionPerformed
-
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     
    
