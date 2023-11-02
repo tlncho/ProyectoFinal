@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
     
-    private static String url = "jdbc:mariadb://localhost/universidadulptransversal";    
+    private static String url = "jdbc:mariadb://localhost/cuartel_bomberos";    
     private static String usuario = "root";
     private static String password = "";
     private static Conexion conexion;
