@@ -25,7 +25,6 @@ public class Escritorio extends javax.swing.JFrame {
         menuSiniestros = new javax.swing.JMenu();
         menuBusqueda = new javax.swing.JMenu();
         menuEstadisticas = new javax.swing.JMenu();
-        menuMapas = new javax.swing.JMenu();
         menuAdministarcion = new javax.swing.JMenu();
         itemBomberos = new javax.swing.JMenuItem();
         itemCuarteles = new javax.swing.JMenuItem();
@@ -66,23 +65,34 @@ public class Escritorio extends javax.swing.JFrame {
         menuEstadisticas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jMenuBar1.add(menuEstadisticas);
 
-        menuMapas.setText("Mapas");
-        menuMapas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jMenuBar1.add(menuMapas);
-
         menuAdministarcion.setText("Administración");
         menuAdministarcion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         itemBomberos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         itemBomberos.setText("Bomberos");
+        itemBomberos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemBomberosActionPerformed(evt);
+            }
+        });
         menuAdministarcion.add(itemBomberos);
 
         itemCuarteles.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         itemCuarteles.setText("Cuarteles");
+        itemCuarteles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCuartelesActionPerformed(evt);
+            }
+        });
         menuAdministarcion.add(itemCuarteles);
 
         itemBrigadas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         itemBrigadas.setText("Brigadas");
+        itemBrigadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemBrigadasActionPerformed(evt);
+            }
+        });
         menuAdministarcion.add(itemBrigadas);
 
         jMenuBar1.add(menuAdministarcion);
@@ -98,6 +108,21 @@ public class Escritorio extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void itemBomberosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemBomberosActionPerformed
+        GestionBombero gb = new GestionBombero();
+        gb.setVisible(true);
+    }//GEN-LAST:event_itemBomberosActionPerformed
+
+    private void itemBrigadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemBrigadasActionPerformed
+        GestionBrigada gbr = new GestionBrigada();
+        gbr.setVisible(true);
+    }//GEN-LAST:event_itemBrigadasActionPerformed
+
+    private void itemCuartelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCuartelesActionPerformed
+       GestionCuartel gc = new GestionCuartel();
+       gc.setVisible(true);
+    }//GEN-LAST:event_itemCuartelesActionPerformed
 
    
     public static void main(String args[]) {
@@ -143,7 +168,6 @@ public class Escritorio extends javax.swing.JFrame {
     private javax.swing.JMenu menuAdministarcion;
     private javax.swing.JMenu menuBusqueda;
     private javax.swing.JMenu menuEstadisticas;
-    private javax.swing.JMenu menuMapas;
     private javax.swing.JMenu menuSiniestros;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,14 +28,6 @@
             </Property>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menuMapas">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Mapas"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="12" style="1"/>
-            </Property>
-          </Properties>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="menuAdministarcion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Administraci&#xf3;n"/>
@@ -51,6 +43,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Bomberos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemBomberosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemCuarteles">
               <Properties>
@@ -59,6 +54,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cuarteles"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemCuartelesActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemBrigadas">
               <Properties>
@@ -67,6 +65,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Brigadas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemBrigadasActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
