@@ -6,21 +6,20 @@ import java.sql.Date;
 
 public class Siniestro {
     private int idSiniestro;
-    private String tipoSinietsro;
+    private String tipoSiniestro;
     private Date fechaSiniestro;
     private int coordenadaX;
      private int coordenadaY;
      private String detalles;
      private Date fechaResolucion;
      private int calificacion;
-     private Brigada idBrigada;
+     private int idBrigada;
 
     public Siniestro() {
     }
 
-    public Siniestro(int idSiniestro, String tipoSinietsro, Date fechaSiniestro, int coordenadaX, int coordenadaY, String detalles, Date fechaResolucion, int calificacion, Brigada idBrigada) {
-        this.idSiniestro = idSiniestro;
-        this.tipoSinietsro = tipoSinietsro;
+    public Siniestro(String tipoSiniestro, Date fechaSiniestro, int coordenadaX, int coordenadaY, String detalles, Date fechaResolucion, int calificacion, int idBrigada) {
+        this.tipoSiniestro = tipoSiniestro;
         this.fechaSiniestro = fechaSiniestro;
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
@@ -30,8 +29,9 @@ public class Siniestro {
         this.idBrigada = idBrigada;
     }
 
-    public Siniestro(String tipoSinietsro, Date fechaSiniestro, int coordenadaX, int coordenadaY, String detalles, Date fechaResolucion, int calificacion, Brigada idBrigada) {
-        this.tipoSinietsro = tipoSinietsro;
+    public Siniestro(int idSiniestro, String tipoSiniestro, Date fechaSiniestro, int coordenadaX, int coordenadaY, String detalles, Date fechaResolucion, int calificacion, int idBrigada) {
+        this.idSiniestro = idSiniestro;
+        this.tipoSiniestro = tipoSiniestro;
         this.fechaSiniestro = fechaSiniestro;
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
@@ -49,12 +49,12 @@ public class Siniestro {
         this.idSiniestro = idSiniestro;
     }
 
-    public String getTipoSinietsro() {
-        return tipoSinietsro;
+    public String getTipoSiniestro() {
+        return tipoSiniestro;
     }
 
-    public void setTipoSinietsro(String tipoSinietsro) {
-        this.tipoSinietsro = tipoSinietsro;
+    public void setTipoSiniestro(String tipoSiniestro) {
+        this.tipoSiniestro = tipoSiniestro;
     }
 
     public Date getFechaSiniestro() {
@@ -105,17 +105,18 @@ public class Siniestro {
         this.calificacion = calificacion;
     }
 
-    public Brigada getIdBrigada() {
+    public int getIdBrigada() {
         return idBrigada;
     }
 
-    public void setIdBrigada(Brigada idBrigada) {
+    public void setIdBrigada(int idBrigada) {
         this.idBrigada = idBrigada;
     }
 
+
     @Override
     public String toString() {
-        return "Siniestro{" + "tipoSinietsro=" + tipoSinietsro + ", fechaSiniestro=" + fechaSiniestro + ", coordenadaX=" + coordenadaX + ", coordenadaY=" + coordenadaY + ", detalles=" + detalles + ", fechaResolucion=" + fechaResolucion + ", calificacion=" + calificacion + ", idBrigada=" + idBrigada + '}';
+        return "Siniestro{" + "tipoSinietsro=" + tipoSiniestro + ", fechaSiniestro=" + fechaSiniestro + ", coordenadaX=" + coordenadaX + ", coordenadaY=" + coordenadaY + ", detalles=" + detalles + ", fechaResolucion=" + fechaResolucion + ", calificacion=" + calificacion + ", idBrigada=" + idBrigada + '}';
     }
 
     
