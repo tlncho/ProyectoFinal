@@ -1,10 +1,6 @@
 
 package Vistas;
 
-/**
- *
- * @author Julian Rios
- */
 public class GestionBrigada extends javax.swing.JFrame {
 
     

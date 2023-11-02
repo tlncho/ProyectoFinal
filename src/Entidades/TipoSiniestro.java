@@ -1,10 +1,7 @@
 
 package Entidades;
 
-/**
- 
- * @author Julian Rios
- */
+
 public class TipoSiniestro {
     
     private int idTipoSiniestro;
