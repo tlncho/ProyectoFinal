@@ -108,24 +108,22 @@ public class SiniestroData {
         return xx;
     }
 
-    // FALTA ESTE ULTIMO 
-    // FALTA ESTE ULTIMO 
-    // FALTA ESTE ULTIMO 
-    //metodo para obtener todos los cuarteles
-    public List<Siniestro> listarCuarteles() {
+    //metodo para obtener todos los siniestros
+    public List<Siniestro> listarSiniestros() {
         ArrayList<Siniestro> lista = new ArrayList<>();
-        try (PreparedStatement ps = con.prepareStatement("SELECT codCuartel, nombre, domicilio, "
-                + "coord_X, coord_Y, telefono, correo FROM cuartel WHERE codCuartel")) {;
+        try (PreparedStatement ps = con.prepareStatement("SELECT tipoSiniestro, fechaSiniestro, coordenadaX, coordenadaY, detalles, fechaResolucion, calificacion, idBrigada)")) {;
             try (ResultSet rs = ps.executeQuery();) {
                 while (rs.next()) {
-                    Cuartel xx = new Cuartel();
-                    xx.setCodCuartel(rs.getInt("codCuartel"));
-                    xx.setDomicilio(rs.getString("nombre"));
-                    xx.setDomicilio(rs.getString("domicilio"));
-                    xx.setCoordenadaX(rs.getInt("coord_X"));
-                    xx.setCoordenadaY(rs.getInt("coord_Y"));
-                    xx.setTelefono(rs.getString("telefono"));
-                    xx.setCorreo(rs.getString("correo"));
+                    Siniestro xx = new Siniestro();
+                    xx.setTipoSiniestro(rs.getString("tipoSiniestro"));
+                    xx.setFechaSiniestro(rs.getDate("fechaSiniestro"));
+                    xx.setCoordenadaX(rs.getInt("coordenadaX"));
+                    xx.setCoordenadaY(rs.getInt("coordenadaY"));
+                    xx.setDetalles(rs.getString("detalles"));
+                    xx.setFechaResolucion(rs.getDate("fechaResolucion"));
+                    xx.setCalificacion(rs.getInt("calificacion"));
+                    xx.setCalificacion(rs.getInt("calificacion"));
+                    xx.setIdBrigada(rs.getInt("idBrigada"));
                     lista.add(xx);
                 }
                 ps.close();
