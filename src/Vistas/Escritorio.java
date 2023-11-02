@@ -3,10 +3,6 @@ package Vistas;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Julian Rios
- */
 public class Escritorio extends javax.swing.JFrame {
 
     public Escritorio() {

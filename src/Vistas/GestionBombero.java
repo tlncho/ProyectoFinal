@@ -1,10 +1,7 @@
 
 package Vistas;
 
-/**
- *
- * @author Julian Rios
- */
+
 public class GestionBombero extends javax.swing.JFrame {
 
     

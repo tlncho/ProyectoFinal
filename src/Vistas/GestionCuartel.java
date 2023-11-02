@@ -2,10 +2,7 @@
 
 package Vistas;
 
-/**
- *
- * @author Julian Rios
- */
+
 public class GestionCuartel extends javax.swing.JFrame {
 
     
