@@ -23,11 +23,11 @@ public class ResolucionSiniestros extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         checkResueltos = new javax.swing.JCheckBox();
         checkSinResolver = new javax.swing.JCheckBox();
         btnCerrar1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,18 +57,15 @@ public class ResolucionSiniestros extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("FECHA:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 71, -1, -1));
-
-        jDateChooser1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 69, 226, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
         checkResueltos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         checkResueltos.setText("RESUELTOS");
-        jPanel1.add(checkResueltos, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 67, -1, -1));
+        jPanel1.add(checkResueltos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, -1));
 
         checkSinResolver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         checkSinResolver.setText("SIN RESOLVER");
-        jPanel1.add(checkSinResolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 67, -1, -1));
+        jPanel1.add(checkSinResolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, -1, -1));
 
         btnCerrar1.setBackground(new java.awt.Color(0, 0, 0));
         btnCerrar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -86,9 +83,10 @@ public class ResolucionSiniestros extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("GUARDAR");
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 494, -1, -1));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 250, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo rojo.jpeg"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 600));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
