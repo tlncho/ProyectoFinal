@@ -27,7 +27,8 @@ public class Principal {
             Brigada brigada1 = new Brigada("PSG", "meter goles", true, cuartel1);
             // primero creo un modelo java(mejora, el metodo deberia de crear el modelo y mapearlo contra la BD automaticamente):
             // el constructor de bombero me pide un LocalDate, ojo que despues en el controlador, le manda un statement a la BD recuperandolo como si fuera un String al usar el metodo Date.of()
-            Bombero bombero1 = new Bombero(1, "44568754", "Leo Messi", "A+", LocalDate.now(), "2665000000", "no se mucho de messi, es zurdo", true, brigada1);
+            LocalDate fechaNacBom1 = LocalDate.now();
+            Bombero bombero1 = new Bombero(2, "44568754", "Leo Messi", "A+", fechaNacBom1, "2665000000", "no se mucho de messi, es zurdo", true, brigada1);
             
             
             
@@ -38,11 +39,12 @@ public class Principal {
             // vamos a ver si guarda el bombero creado previamente, tener en cuenta que muy posiblemente rompa por lo del date, y lo de las FK, que no se si estan contempladas en la BD(deberia insertar el bombero
 //            y despues mapear y modelar las otras clases en un metodo de asignar bombero a cuartel y brigada).
 
-            bd.guardarBombero(bombero1);
+            //bd.guardarBombero(bombero1);
             
             // para el siguiente metodo, MODIFICAR, voy a probar creando un bombero en la BD, y modificarlo con mi bombero1.
             // consejo, el codigo del bombero a modificar, deberia ser recuperado por vista, y pasado por metodo, para no dejarlo como un comodin en el prepare statement
-            bd.modificarBombero(bombero1);
+            
+            //bd.modificarBombero(bombero1,1);
             
             
             // creo un bombero en la bd directamente, y lo busco desde java:

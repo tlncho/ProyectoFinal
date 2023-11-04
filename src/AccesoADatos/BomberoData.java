@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -58,7 +59,7 @@ public class BomberoData {
     }
 
     //listo modificar por codigo no pir id
-    public void modificarBombero(Bombero bom) {
+    public void modificarBombero(Bombero bom, int codBom) {
         String sql = "UPDATE bombero SET codBombero=?, dni=?, nombreCompleto=?, grupoSang=?, "
                 + "fechaNac=?, celular=?, obsrevaciones=?, estado=?, aliasBrigada=? WHERE codBombero=?";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
@@ -68,9 +69,13 @@ public class BomberoData {
             ps.setString(4, bom.getGrupoSang());
             ps.setDate(5, Date.valueOf(bom.getFechaNac()));
             ps.setString(6, bom.getCelular());
+            ps.setString(7, bom.getObservaciones());
+            ps.setBoolean(8, true);
 
             String aliasBrigada = bom.getAliasBrigada().getAliasBrigada();
-            ps.setString(7, aliasBrigada);
+            ps.setString(9, aliasBrigada);
+            
+            ps.setInt(10, codBom);
 
             int filasModificadas = ps.executeUpdate();
 
@@ -86,31 +91,44 @@ public class BomberoData {
 
     //listo busqueda por cod de bombero
     public Bombero buscarBombero(int codBombero) {
-        Bombero bom = null;
-        String buscarBombero = "SELECT codBombero, dni, nombreCompleto, grupoSang, fechaNac,"
-                + " celular, observaciones, estado FROM bombero WHERE codBombero=?";
-        try (PreparedStatement ps = con.prepareStatement(buscarBombero)) {
+        Bombero bom = new Bombero();
+        BrigadaData bd = new BrigadaData();
+        
+        
+        String query = "SELECT codBombero, dni, nombreCompleto, grupoSang, fechaNac,"
+                + " celular, observaciones, estado, aliasBrigada FROM bombero WHERE codBombero=?";
+        try (PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, codBombero);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                bom = new Bombero();
-                ps.setInt(1, bom.getCodBombero());
-                ps.setString(2, bom.getDni());
-                ps.setString(3, bom.getNombreCompleto());
-                ps.setString(4, bom.getGrupoSang());
-                ps.setDate(5, Date.valueOf(bom.getFechaNac()));
-                ps.setString(6, bom.getCelular());
-
-                String aliasBrigada = bom.getAliasBrigada().getAliasBrigada();
-                ps.setString(7, aliasBrigada);
+                
+                bom.setDni(rs.getString("dni"));
+                bom.setNombreCompleto(rs.getString("nombreCompleto"));
+                bom.setGrupoSang(rs.getString("grupoSang"));
+                bom.setFechaNac(rs.getDate("fechaNac").toLocalDate());
+                bom.setCelular(rs.getString("celular"));
+                bom.setObservaciones(rs.getString("observaciones"));
+                
+                // en orden de poder recuperar el alias correctamente necesito llamar al controlador de brigada
+                String aliasBrigada = rs.getString("aliasBrigada");
+                Brigada brigadaAsociadaEnBD = bd.buscarBrigada(aliasBrigada);
+                
+                // y termino finalmente de crear mi modelo de bombero:
+                
+                bom.setAliasBrigada(brigadaAsociadaEnBD);
+                
+                
             } else {
                 JOptionPane.showMessageDialog(null, "El bombero no existe");
             }
+            // importante tmb cerrar la conexion, sino esto no se ejecuta
+            ps.close();
+            
         } catch (SQLException ex) {
 
             ex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error al buscar el alumno: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al buscar el bombero: " + ex.getMessage());
         }
         return bom;
     }
