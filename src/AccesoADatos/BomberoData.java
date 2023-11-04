@@ -24,26 +24,28 @@ public class BomberoData {
 
     //listo guardar por codigo de bombero(es unico), no por id
     public void guardarBombero(Bombero bom) {
-        String sql = "INSERT INTO bombero (codBombero, dni, nombreCompleto, grupoSang, "
-                + "fechaNac, celular, observaciones, aliasBrigada) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO bombero (codBombero, dni, nombreCompleto, grupoSang, "
+                + "fechaNac, celular, observaciones, estado, aliasBrigada) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement ps = con.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, bom.getCodBombero());
             ps.setString(2, bom.getDni());
             ps.setString(3, bom.getNombreCompleto());
             ps.setString(4, bom.getGrupoSang());
             ps.setDate(5, Date.valueOf(bom.getFechaNac()));
             ps.setString(6, bom.getCelular());
+            ps.setString(7, bom.getObservaciones());
+            ps.setBoolean(8, bom.isEstado());
 
             String aliasBrigada = bom.getAliasBrigada().getAliasBrigada();
-            ps.setString(7, aliasBrigada);
+            ps.setString(9, aliasBrigada);
 
             int filasInsertadas = ps.executeUpdate();
 
             if (filasInsertadas > 0) {
                 try (ResultSet rs = ps.getGeneratedKeys()) {
                     if (rs.next()) {
-                        bom.setCodBombero(rs.getInt(1));
+                        bom.setIdBombero(rs.getInt(1));
                     }
                 }
                 JOptionPane.showMessageDialog(null, "Se cargó el bombero correctamente!!");
